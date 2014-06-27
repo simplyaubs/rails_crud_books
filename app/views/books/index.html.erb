@@ -1,0 +1,21 @@
+<%= form_for @book do |f| %>
+<p>
+  <%= f.label :name %>
+  <%= f.text_field :name %>
+</p>
+  <p>
+    <%= f.label :author %>
+    <%= f.text_field :author %>
+  </p>
+  <p>
+    <%= f.submit 'Add book' %>
+  </p>
+<% end %>
+
+<%= @books.each do |book| %>
+<ul>
+  <li>
+    <%= book.name %>, <%= book.author %>
+  </li>
+</ul>
+<% end %>
