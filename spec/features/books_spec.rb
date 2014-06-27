@@ -33,4 +33,21 @@ feature 'CRUD books' do
     expect(page).to_not have_content 'Programming Ruby'
     expect(page).to_not have_content 'Dave Thomas'
   end
+
+  scenario 'User can delete a book from list' do
+    visit '/'
+    expect(page).to have_content 'Welcome'
+    click_on 'Add a book'
+    fill_in 'Name', with: 'Programming Ruby'
+    fill_in 'Author', with: 'Dave Thomas'
+    click_on 'Add book'
+    expect(page).to have_content 'Programming Ruby'
+    expect(page).to have_content 'Dave Thomas'
+    click_on 'Programming Ruby'
+    expect(page).to have_content 'Programming Ruby'
+    expect(page).to have_content 'Dave Thomas'
+    click_on 'Delete'
+    expect(page).to_not have_content 'Programming Ruby'
+    expect(page).to_not have_content 'Dave Thomas'
+  end
 end
