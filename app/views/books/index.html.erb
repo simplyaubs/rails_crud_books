@@ -15,7 +15,7 @@
 <%= @books.each do |book| %>
 <ul>
   <li>
-    <%= book.name %>, <%= book.author %>
+    <%= link_to "#{book.name}", book_path(book) %>, <%= book.author %>
   </li>
 </ul>
 <% end %>
